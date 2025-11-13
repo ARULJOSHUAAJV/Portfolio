@@ -1,259 +1,256 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arul JoshuAA JV - Portfolio</title>
-<style>
-  *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-  body{
-    font-family: 'Montserrat', sans-serif;
-    background:#f7f7f7;
-    color:#000;
-    line-height:1.6;
-  }
-  a{color:#1E90FF; text-decoration:none; transition:0.3s;}
-  a:hover{color:#104E8B;}
-  h1,h2,h3{margin-bottom:15px;}
-  h2{text-align:center; margin-bottom:40px; font-size:2.5rem; color:#1E90FF;}
-  .container{max-width:1000px; margin:0 auto; padding:40px 20px;}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arul Joshuaa — Portfolio</title>
+  <meta name="description" content="Arul Joshuaa — Full-stack & Prompt Engineering | Cloud, DevOps, AI integrations" />
+  <style>
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#eef2ff;background:#0f172a;overflow-y:auto}
 
-  /* Navbar */
-  nav{
-    position:sticky;
-    top:0;
-    width:100%;
-    background:#fff;
-    display:flex;
-    justify-content:center;
-    padding:15px 0;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    z-index:1000;
-  }
-  nav ul{
-    display:flex; list-style:none; gap:30px;
-  }
-  nav ul li a{
-    font-weight:600;
-    color:#1E90FF;
-    padding:5px 10px;
-    transition:0.3s;
-  }
-  nav ul li a:hover{
-    background:#1E90FF;
-    color:#fff;
-    border-radius:5px;
-  }
+    /* Background vibe: gradient + animated organic blobs + star particles */
+    .bg-wrap{position:fixed;inset:0;z-index:-2;overflow:hidden}
+    .gradient{position:absolute;inset:-20% -10% -10% -20%;background:radial-gradient(ellipse at 10% 20%, rgba(99,102,241,0.18), transparent 8%), radial-gradient(ellipse at 90% 80%, rgba(236,72,153,0.12), transparent 10%), linear-gradient(180deg,#051029 0%, #071233 40%, #0f172a 100%);filter:blur(40px);transform:translateZ(0)}
 
-  /* Header */
-  header{
-    height:90vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:#fff;
-    position:relative;
-  }
-  .hero h1{
-    font-size:3rem; 
-    opacity:0; 
-    color:#1E90FF;
-    animation:fadeIn 1s forwards;
-  }
-  .hero p{
-    font-size:1.2rem; margin-top:10px; opacity:0; animation:fadeIn 1s 0.5s forwards;
-  }
-  .social-links{margin-top:20px; opacity:0; animation:fadeIn 1s 1s forwards;}
-  .social-links a{
-    display:inline-block;
-    margin:0 10px;
-    padding:10px 20px;
-    border:2px solid #1E90FF;
-    border-radius:5px;
-    transition:all 0.3s;
-    color:#1E90FF;
-    font-weight:600;
-  }
-  .social-links a:hover{
-    background:#1E90FF; color:#fff; transform:translateY(-3px);
-  }
+    .blob{position:absolute;border-radius:48% 52% 60% 40%/50% 40% 60% 50%;mix-blend-mode:screen;filter:blur(36px);opacity:.9;animation:blobMove 12s ease-in-out infinite}
+    .blob.a{width:520px;height:520px;left:-100px;top:-40px;background:linear-gradient(135deg,#7c3aed,#06b6d4)}
+    .blob.b{width:420px;height:420px;right:-80px;bottom:40px;background:linear-gradient(135deg,#ec4899,#f97316);animation-duration:18s}
+    .blob.c{width:360px;height:360px;left:20%;top:30%;background:linear-gradient(135deg,#10b981,#3b82f6);animation-duration:15s;opacity:.7}
 
-  /* Sections */
-  section{
-    padding:80px 0;
-    opacity:0;
-    transform:translateY(30px);
-    transition:all 0.8s ease-out;
-  }
-  section.visible{opacity:1; transform:translateY(0);}
-  p{margin-bottom:15px;}
+    @keyframes blobMove{
+      0%{transform:translateY(0) scale(1)}
+      25%{transform:translateY(-18px) scale(1.05)}
+      50%{transform:translateY(6px) scale(.98)}
+      75%{transform:translateY(-8px) scale(1.02)}
+      100%{transform:translateY(0) scale(1)}
+    }
 
-  /* Skills */
-  .skills-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
-  .skill-card{
-    background:#fff;
-    border:1px solid #ddd;
-    border-left:5px solid #1E90FF;
-    border-radius:8px;
-    padding:20px;
-    transition:all 0.3s;
-    position:relative;
-    overflow:hidden;
-  }
-  .skill-card::before{
-    content:"";
-    position:absolute;
-    top:0; left:-100%;
-    width:100%; height:100%;
-    background:rgba(30,144,255,0.05);
-    transition:0.5s;
-  }
-  .skill-card:hover::before{left:0;}
-  .skill-card:hover{
-    transform:translateY(-5px); 
-    box-shadow:0 6px 20px rgba(0,0,0,0.1);
-  }
-  .skill-card span{display:block; margin-top:10px; font-size:0.95rem; color:#555;}
+    .stars{position:absolute;inset:0;background-image:radial-gradient(white 1px, transparent 1px);background-size:100px 100px;opacity:.06;mix-blend-mode:overlay;transform:translateZ(0)}
 
-  /* Education */
-  .edu-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;}
-  .edu-card{
-    background:#fff;
-    border:1px solid #ddd;
-    border-left:5px solid #1E90FF;
-    border-radius:8px;
-    padding:20px;
-    transition:all 0.3s;
-  }
-  .edu-card:hover{
-    transform:translateY(-5px); 
-    box-shadow:0 6px 20px rgba(0,0,0,0.1);
-  }
+    /* Page container */
+    .container{max-width:1100px;margin:48px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));backdrop-filter: blur(6px);border-radius:18px;box-shadow:0 10px 30px rgba(2,6,23,.7);border:1px solid rgba(255,255,255,0.04)}
 
-  /* Contact */
-  #contact p a{color:#1E90FF; text-decoration:underline;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:white;box-shadow:0 6px 18px rgba(99,102,241,0.18)}
+    h1{font-size:20px;color:#fff}
+    p.lead{color:rgba(236,239,245,.85);font-size:13px}
 
-  /* Footer */
-  footer{
-    text-align:center;
-    padding:20px; 
-    background:#fff; 
-    border-top:2px solid #1E90FF; 
-    color:#000;
-  }
+    nav a{color:rgba(222,226,255,.8);text-decoration:none;margin-left:12px;font-weight:600;font-size:13px}
+    nav a:hover{color:#fff}
 
-  /* Animations */
-  @keyframes fadeIn{
-    0%{opacity:0; transform:translateY(20px);}
-    100%{opacity:1; transform:translateY(0);}
-  }
+    .hero{display:flex;gap:24px;align-items:center;margin-top:22px}
+    .left{flex:1}
+    .eye-catching{font-size:34px;font-weight:800;line-height:1.02;margin-bottom:8px;letter-spacing:-0.02em}
+    .sub{color:rgba(222,226,255,.85);margin-bottom:16px}
 
-  /* Responsive */
-  @media(max-width:600px){.hero h1{font-size:2rem;} h2{font-size:2rem;}}
-</style>
+    .cta{display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,#7c3aed,#06b6d4);color:#061026;box-shadow:0 8px 30px rgba(7,89,133,0.12)}
+    .btn.ghost{background:transparent;color:rgba(236,239,245,.9);border:1px solid rgba(255,255,255,0.06)}
+
+    /* Right card */
+    .card{width:360px;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04)}
+    .role{font-size:13px;color:rgba(222,226,255,.9);margin-bottom:6px}
+    .badge{display:inline-block;padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:999px;font-weight:700;font-size:12px;margin-right:8px}
+
+    .section{margin-top:26px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(10,14,23,0.12), rgba(10,14,23,0.06));border:1px solid rgba(255,255,255,0.02)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .skill{padding:12px;background:rgba(255,255,255,0.02);border-radius:10px;font-weight:700;text-align:center}
+
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .project{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .project h4{margin-bottom:8px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;font-size:12px}
+
+    footer{margin-top:18px;text-align:center;color:rgba(222,226,255,0.6);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{flex-direction:column}
+      .card{width:100%}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .projects{grid-template-columns:1fr}
+    }
+
+    @media (max-width:520px){
+      .grid{grid-template-columns:1fr}
+      .logo{width:52px;height:52px;font-size:18px}
+      .eye-catching{font-size:28px}
+    }
+  </style>
 </head>
 <body>
-
-<nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<header id="home">
-  <div class="hero">
-    <h1>Hello, I'm Arul JoshuAA JV</h1>
-    <p>Aspiring Data Analyst | Computer Hardware Enthusiast | Web Developer</p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/arul-joshuaa-jv-b5209127b/" target="_blank">LinkedIn</a>
-      <a href="https://www.instagram.com/arul_joshuaa_jv/" target="_blank">Instagram</a>
-      <a href="mailto:aruljoshuaajv2005@gmail.com">Email</a>
-    </div>
+  <div class="bg-wrap" aria-hidden>
+    <div class="gradient"></div>
+    <div class="blob a"></div>
+    <div class="blob b"></div>
+    <div class="blob c"></div>
+    <div class="stars"></div>
   </div>
-</header>
 
-<section id="about">
-  <div class="container">
-    <h2>About Me</h2>
-    <p>Motivated and detail-oriented Computer Science Engineering student with a strong foundation in computer hardware, Web Development (Frontend), and Data Analysis. Skilled in assembling, troubleshooting, and analyzing datasets to generate actionable insights.</p>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container">
-    <h2>Technical & Professional Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">Computer Hardware <span>PC Assembly, Troubleshooting</span></div>
-      <div class="skill-card">Data Analysis <span>Python, SQL, Excel, Power BI</span></div>
-      <div class="skill-card">Database Management <span>MySQL, DBMS Concepts</span></div>
-      <div class="skill-card">Web Development <span>HTML, CSS, JavaScript</span></div>
-      <div class="skill-card">Visualization & Design <span>Canva, PowerPoint</span></div>
-      <div class="skill-card">Soft Skills <span>Problem-Solving, Logical Thinking, Teamwork</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="container">
-    <h2>Education</h2>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <h3>B.E./B.Tech – Computer Science Engineering</h3>
-        <p>AALIM MUHAMMED SALEGH COLLEGE OF ENGINEERING | 4th Year</p>
-        <p>CGPA: 7.5/10</p>
+  <main class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">AJ</div>
+        <div>
+          <h1>Arul Joshuaa J V</h1>
+          <p class="lead">B.E. Computer Science • Cloud • DevOps • Prompt Engineering</p>
+        </div>
       </div>
-      <div class="edu-card">
-        <h3>Higher Secondary (Class XII)</h3>
-        <p>SETHU BHASKARA MATRIC. HR. SEC. SCHOOL | 2022</p>
-        <p>Percentage: 62%</p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="left">
+        <div class="eye-catching">Full‑Stack Developer & Aspiring Prompt Engineer</div>
+        <p class="sub">I build cloud-ready prototypes, design robust prompts for LLMs, and deploy containerized applications. I love turning ideas into working web experiences with clean, modern interfaces.</p>
+        <div class="cta">
+          <button class="btn primary" id="hireBtn">Hire / Intern</button>
+          <button class="btn ghost" id="resumeBtn">Download Resume</button>
+        </div>
+
+        <div class="section" id="about">
+          <h3 style="margin-bottom:8px">About</h3>
+          <p style="color:rgba(222,226,255,0.85);font-size:14px">Computer Science student with hands-on internship experience in AWS & Azure, Docker & Terraform, and AI-integrated full-stack work. Completed courses in Generative AI (Google Cloud), LLaMA 4 prompt engineering (Udemy), and Data Analysis with Excel.</p>
+        </div>
+
+        <div class="section" id="skills">
+          <h3 style="margin-bottom:8px">Skills</h3>
+          <div class="grid">
+            <div class="skill">Frontend: HTML, CSS, Vanilla JS</div>
+            <div class="skill">Cloud: AWS, Azure</div>
+            <div class="skill">DevOps: Docker, Terraform</div>
+            <div class="skill">Prompting: LLaMA, ChatGPT</div>
+            <div class="skill">Data: Excel, Colab</div>
+            <div class="skill">Tools: VS Code, Git</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<section id="certifications">
-  <div class="container">
-    <h2>Certifications & Achievements</h2>
-    <ul>
-      <li>NCC (B Certificate, C Certificate)</li>
-      <li>Marathon (10km, 5km)</li>
-      <li>Carrom, Drawing Competitions</li>
-    </ul>
-  </div>
-</section>
+      <aside class="card">
+        <div class="role">Available: Internships & Junior Roles</div>
+        <div style="margin:12px 0;font-weight:800">Arul Joshuaa</div>
+        <div style="color:rgba(222,226,255,0.8);font-size:13px">B.E. CSE — Aalim Muhammed Salegh College</div>
 
-<section id="contact">
-  <div class="container">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:aruljoshuaajv2005@gmail.com">aruljoshuaajv2005@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/arul-joshuaa-jv-b5209127b/" target="_blank">Visit Profile</a></p>
-    <p>Instagram: <a href="https://www.instagram.com/arul_joshuaa_jv/" target="_blank">Visit Profile</a></p>
-  </div>
-</section>
+        <div style="margin-top:12px">
+          <div class="badge">Email</div>
+          <div style="margin-top:6px;color:rgba(236,239,255,0.9);font-weight:700">aruljoshuaajv2005@gmail.com</div>
+          <div style="margin-top:6px;color:rgba(236,239,255,0.75);font-size:13px">+91 93420 27854</div>
+        </div>
 
-<footer>
-  <p>&copy; 2025 Arul JoshuAA JV | All Rights Reserved</p>
-</footer>
+        <div style="margin-top:14px">
+          <div style="font-weight:700;margin-bottom:8px">Certifications</div>
+          <div style="font-size:13px;color:rgba(236,239,255,0.85)">Generative AI (Google Cloud)<br>LLaMA 4 Prompt Engineering (Udemy)<br>Data Analysis - Excel (Great Learning)</div>
+        </div>
 
-<script>
-  // Section reveal on scroll
-  const sections = document.querySelectorAll('section');
-  function revealSections(){
-    sections.forEach(section=>{
-      const top = section.getBoundingClientRect().top;
-      const trigger = window.innerHeight / 1.2;
-      if(top < trigger) section.classList.add('visible');
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn primary" style="padding:8px 10px;font-size:13px">Contact</button>
+          <button class="btn ghost" style="padding:8px 10px;font-size:13px">Portfolio</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="projects">
+      <h3 style="margin-bottom:12px">Selected Projects</h3>
+      <div class="projects">
+        <div class="project">
+          <h4>Prompt Playground</h4>
+          <p style="color:rgba(222,226,255,0.85);font-size:13px">A small web app to test prompts against LLM APIs with templates, comparisons and evaluation notes.</p>
+          <div class="tags">
+            <span class="tag">Prompting</span>
+            <span class="tag">LLM</span>
+            <span class="tag">JS</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <h4>Containerized Flask App + Terraform</h4>
+          <p style="color:rgba(222,226,255,0.85);font-size:13px">Prototype with Dockerized backend, static frontend and Terraform scripts for cloud deployment.</p>
+          <div class="tags">
+            <span class="tag">Docker</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Cloud</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h3>Contact</h3>
+      <p style="color:rgba(222,226,255,0.85);font-size:13px;margin-bottom:10px">Reach out for internships, collaboration or junior roles.</p>
+      <form id="contactForm" style="display:flex;flex-direction:column;gap:10px;max-width:600px">
+        <input type="text" id="name" placeholder="Your name" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" required>
+        <input type="email" id="email" placeholder="Your email" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" required>
+        <textarea id="message" rows="4" placeholder="Message" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit"></textarea>
+        <div style="display:flex;gap:8px">
+          <button type="submit" class="btn primary">Send Message</button>
+          <button type="button" class="btn ghost" id="downloadVCard">Download vCard</button>
+        </div>
+      </form>
+    </section>
+
+    <footer>© <span id="year"></span> Arul Joshuaa — Built with care</footer>
+  </main>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple resume download (points to uploaded PDF path if available). If not available, create a small text file.
+    const resumeBtn = document.getElementById('resumeBtn');
+    resumeBtn.addEventListener('click', () => {
+      // If you host your resume, replace the URL below
+      const resumeUrl = '/mnt/data/ARUL JOSHUAA\'s RESUME.pdf';
+      // try to download; fallback to generating a small summary
+      fetch(resumeUrl).then(r => {
+        if(r.ok){ window.open(resumeUrl, '_blank'); }
+      }).catch(()=>{
+        const blob = new Blob([`Name: Arul Joshuaa\nRole: Full-Stack & Prompt Engineer\nEmail: aruljoshuaajv2005@gmail.com`], {type:'text/plain'});
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='Arul-Joshuaa-resume.txt'; a.click();
+      });
     });
-  }
-  window.addEventListener('scroll', revealSections);
-  window.addEventListener('DOMContentLoaded', revealSections);
-</script>
 
+    // Hire / Intern button scrolls to contact
+    document.getElementById('hireBtn').addEventListener('click', ()=>{
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    });
+
+    // vCard download
+    document.getElementById('downloadVCard').addEventListener('click', ()=>{
+      const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:Joshuaa;Arul;;;\nFN:Arul Joshuaa\nORG:Aalim Muhammed Salegh College\nTITLE:Full-Stack Developer\nEMAIL;TYPE=INTERN:aruljoshuaajv2005@gmail.com\nTEL;TYPE=CELL:+919342027854\nEND:VCARD`;
+      const blob = new Blob([vcard], {type:'text/vcard'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='Arul-Joshuaa.vcf'; a.click();
+    });
+
+    // Contact form basic behavior: prevent actual submission, show a toast
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value || 'Friend';
+      alert(`Thanks ${name}! Message received — I'll reply via email soon.`);
+      e.target.reset();
+    });
+
+    // subtle parallax effect for blobs based on mouse
+    const blobs = document.querySelectorAll('.blob');
+    document.addEventListener('mousemove', (e)=>{
+      const x = (e.clientX / window.innerWidth - 0.5) * 40;
+      const y = (e.clientY / window.innerHeight - 0.5) * 40;
+      blobs.forEach((b, i)=>{
+        const speed = (i+1) * 4;
+        b.style.transform = `translate3d(${x/speed}px, ${y/speed}px, 0) scale(${1 + i*0.02})`;
+      });
+    });
+  </script>
 </body>
 </html>

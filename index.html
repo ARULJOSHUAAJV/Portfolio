@@ -3,23 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Arul Joshuaa — Portfolio</title>
-  <meta name="description" content="Arul Joshuaa — Full-stack & Prompt Engineering | Cloud, DevOps, AI integrations" />
+  <title>Arul Joshuaa — Resume</title>
+  <meta name="description" content="Arul Joshuaa — Full-Stack & Prompt Engineering | Cloud, DevOps, AI integrations" />
   <style>
-    /* Reset */
+    /* ---------- Reset ---------- */
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#eef2ff;background:#0f172a;overflow-y:auto}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+         color:#e6eef9;background:#061026;line-height:1.4;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:inherit}
+    img{max-width:100%;display:block}
 
-    /* Background vibe: gradient + animated organic blobs + star particles */
+    /* ---------- Background vibe ---------- */
     .bg-wrap{position:fixed;inset:0;z-index:-2;overflow:hidden}
-    .gradient{position:absolute;inset:-20% -10% -10% -20%;background:radial-gradient(ellipse at 10% 20%, rgba(99,102,241,0.18), transparent 8%), radial-gradient(ellipse at 90% 80%, rgba(236,72,153,0.12), transparent 10%), linear-gradient(180deg,#051029 0%, #071233 40%, #0f172a 100%);filter:blur(40px);transform:translateZ(0)}
-
-    .blob{position:absolute;border-radius:48% 52% 60% 40%/50% 40% 60% 50%;mix-blend-mode:screen;filter:blur(36px);opacity:.9;animation:blobMove 12s ease-in-out infinite}
-    .blob.a{width:520px;height:520px;left:-100px;top:-40px;background:linear-gradient(135deg,#7c3aed,#06b6d4)}
+    .gradient{position:absolute;inset:-30% -10% -10% -30%;
+              background:
+                radial-gradient(ellipse at 10% 20%, rgba(124,58,237,0.16), transparent 8%),
+                radial-gradient(ellipse at 90% 80%, rgba(236,72,153,0.12), transparent 10%),
+                linear-gradient(180deg,#030617 0%, #061026 30%, #08132b 100%);
+              filter:blur(44px);transform:translateZ(0)}
+    .blob{position:absolute;border-radius:48% 52% 60% 40%/50% 40% 60% 50%;mix-blend-mode:screen;filter:blur(36px);opacity:.95;animation:blobMove 12s ease-in-out infinite}
+    .blob.a{width:520px;height:520px;left:-120px;top:-60px;background:linear-gradient(135deg,#7c3aed,#06b6d4)}
     .blob.b{width:420px;height:420px;right:-80px;bottom:40px;background:linear-gradient(135deg,#ec4899,#f97316);animation-duration:18s}
-    .blob.c{width:360px;height:360px;left:20%;top:30%;background:linear-gradient(135deg,#10b981,#3b82f6);animation-duration:15s;opacity:.7}
-
+    .blob.c{width:360px;height:360px;left:18%;top:28%;background:linear-gradient(135deg,#10b981,#3b82f6);animation-duration:15s;opacity:.82}
     @keyframes blobMove{
       0%{transform:translateY(0) scale(1)}
       25%{transform:translateY(-18px) scale(1.05)}
@@ -27,61 +33,71 @@
       75%{transform:translateY(-8px) scale(1.02)}
       100%{transform:translateY(0) scale(1)}
     }
+    .stars{position:absolute;inset:0;background-image:radial-gradient(white 1px, transparent 1px);background-size:100px 100px;opacity:.04;mix-blend-mode:overlay;transform:translateZ(0)}
 
-    .stars{position:absolute;inset:0;background-image:radial-gradient(white 1px, transparent 1px);background-size:100px 100px;opacity:.06;mix-blend-mode:overlay;transform:translateZ(0)}
-
-    /* Page container */
-    .container{max-width:1100px;margin:48px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));backdrop-filter: blur(6px);border-radius:18px;box-shadow:0 10px 30px rgba(2,6,23,.7);border:1px solid rgba(255,255,255,0.04)}
-
+    /* ---------- Container ---------- */
+    .wrap{max-width:1100px;margin:36px auto;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 40px rgba(2,6,23,.6)}
     header{display:flex;align-items:center;justify-content:space-between;gap:18px}
     .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:white;box-shadow:0 6px 18px rgba(99,102,241,0.18)}
+    .avatar{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:20px;box-shadow:0 6px 24px rgba(124,58,237,0.14);overflow:hidden}
+    .avatar img{width:100%;height:100%;object-fit:cover}
     h1{font-size:20px;color:#fff}
-    p.lead{color:rgba(236,239,245,.85);font-size:13px}
+    .subtle{color:rgba(226,236,255,0.8);font-size:13px}
+    nav{display:flex;gap:12px}
+    nav a{color:rgba(230,238,249,0.82);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:700;font-size:13px}
+    nav a:hover{background:rgba(255,255,255,0.02)}
+    .top-actions{display:flex;gap:10px;align-items:center}
 
-    nav a{color:rgba(222,226,255,.8);text-decoration:none;margin-left:12px;font-weight:600;font-size:13px}
-    nav a:hover{color:#fff}
-
-    .hero{display:flex;gap:24px;align-items:center;margin-top:22px}
+    /* ---------- Hero ---------- */
+    .hero{display:flex;gap:24px;align-items:flex-start;margin-top:20px}
     .left{flex:1}
-    .eye-catching{font-size:34px;font-weight:800;line-height:1.02;margin-bottom:8px;letter-spacing:-0.02em}
-    .sub{color:rgba(222,226,255,.85);margin-bottom:16px}
+    .title{font-size:34px;font-weight:800;color:#fff;line-height:1.02;margin-bottom:8px}
+    .desc{color:rgba(226,236,249,0.85);margin-bottom:14px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:10px 16px;border-radius:12px;font-weight:800;border:none;cursor:pointer;font-size:14px}
+    .btn.primary{background:linear-gradient(90deg,#7c3aed,#06b6d4);color:#041027;box-shadow:0 10px 30px rgba(7,89,133,0.12)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:rgba(230,238,249,0.95)}
 
-    .cta{display:flex;gap:12px}
-    .btn{padding:10px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
-    .btn.primary{background:linear-gradient(90deg,#7c3aed,#06b6d4);color:#061026;box-shadow:0 8px 30px rgba(7,89,133,0.12)}
-    .btn.ghost{background:transparent;color:rgba(236,239,245,.9);border:1px solid rgba(255,255,255,0.06)}
+    /* ---------- Right card ---------- */
+    .card{width:360px;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .role{font-size:13px;color:rgba(226,236,249,0.9);margin-bottom:6px}
+    .name-strong{font-weight:800;color:#fff;font-size:18px;margin-bottom:6px}
+    .small-muted{color:rgba(226,236,249,0.75);font-size:13px}
 
-    /* Right card */
-    .card{width:360px;padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04)}
-    .role{font-size:13px;color:rgba(222,226,255,.9);margin-bottom:6px}
-    .badge{display:inline-block;padding:6px 10px;background:rgba(255,255,255,0.03);border-radius:999px;font-weight:700;font-size:12px;margin-right:8px}
-
-    .section{margin-top:26px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(10,14,23,0.12), rgba(10,14,23,0.06));border:1px solid rgba(255,255,255,0.02)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .skill{padding:12px;background:rgba(255,255,255,0.02);border-radius:10px;font-weight:700;text-align:center}
-
+    /* ---------- Sections ---------- */
+    .section{margin-top:26px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .skill{padding:12px;background:rgba(255,255,255,0.02);border-radius:10px;font-weight:800;text-align:center;color:rgba(230,238,249,0.95)}
     .projects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .project{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
-    .project h4{margin-bottom:8px}
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;font-size:12px}
+    .project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .project h4{color:#fff;margin-bottom:6px}
+    .tag{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:800;font-size:12px;margin-right:6px;color:rgba(230,238,249,0.95)}
 
-    footer{margin-top:18px;text-align:center;color:rgba(222,226,255,0.6);font-size:13px}
+    /* ---------- Footer ---------- */
+    footer{margin-top:18px;text-align:center;color:rgba(224,232,255,0.65);font-size:13px}
 
-    /* Responsive */
-    @media (max-width:900px){
+    /* ---------- Responsive ---------- */
+    @media (max-width:980px){
       .hero{flex-direction:column}
       .card{width:100%}
-      .grid{grid-template-columns:repeat(2,1fr)}
       .projects{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:520px){
+      .grid-3{grid-template-columns:1fr}
+      .title{font-size:28px}
+      .avatar{width:60px;height:60px}
     }
 
-    @media (max-width:520px){
-      .grid{grid-template-columns:1fr}
-      .logo{width:52px;height:52px;font-size:18px}
-      .eye-catching{font-size:28px}
-    }
+    /* ---------- Modal (PDF viewer) ---------- */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(5,6,10,0.6), rgba(5,6,10,0.85));z-index:9999;padding:24px}
+    .modal.open{display:flex}
+    .modal-content{width:90%;max-width:960px;height:80vh;background:#fff;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+    .modal-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#041026;color:#fff}
+    .modal-body{flex:1}
+    .iframe-wrap{width:100%;height:100%}
+    .close-x{background:transparent;border:0;color:#fff;font-weight:800;cursor:pointer;padding:8px}
+    .download-inline{background:linear-gradient(90deg,#7c3aed,#06b6d4);color:#041027;padding:8px 12px;border-radius:10px;font-weight:800;border:none;cursor:pointer}
   </style>
 </head>
 <body>
@@ -93,155 +109,203 @@
     <div class="stars"></div>
   </div>
 
-  <main class="container">
+  <div class="wrap" role="main">
     <header>
       <div class="brand">
-        <div class="logo">AJ</div>
+        <div class="avatar" id="avatar">
+          <!-- Profile image placeholder.
+               Replace with a real image named "profile.jpg" in the same folder for the site to show it automatically.
+               Example: <img src="profile.jpg" alt="Arul Joshuaa"> -->
+          <span id="init">AJ</span>
+        </div>
         <div>
           <h1>Arul Joshuaa J V</h1>
-          <p class="lead">B.E. Computer Science • Cloud • DevOps • Prompt Engineering</p>
+          <div class="subtle">B.E. Computer Science • Cloud • DevOps • Prompt Engineer (aspiring)</div>
         </div>
       </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+      <div class="top-actions">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div style="display:flex;gap:10px;margin-left:8px">
+          <button class="btn primary" id="viewResumeBtn">View Resume</button>
+          <a id="downloadResume" class="btn ghost" href="#" download>Download PDF</a>
+        </div>
+      </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" aria-label="Intro">
       <div class="left">
-        <div class="eye-catching">Full‑Stack Developer & Aspiring Prompt Engineer</div>
-        <p class="sub">I build cloud-ready prototypes, design robust prompts for LLMs, and deploy containerized applications. I love turning ideas into working web experiences with clean, modern interfaces.</p>
+        <div class="title">Full-Stack Developer & Aspiring Prompt Engineer</div>
+        <div class="desc">Enthusiastic computer science student with hands-on internship experience in cloud (AWS, Azure), DevOps (Docker, Terraform), and building AI-integrated full-stack prototypes. Ready for internships and junior roles.</div>
+
         <div class="cta">
-          <button class="btn primary" id="hireBtn">Hire / Intern</button>
-          <button class="btn ghost" id="resumeBtn">Download Resume</button>
+          <button class="btn primary" id="hireBtn">Apply / Contact</button>
+          <button class="btn ghost" id="downloadVCard">Download vCard</button>
         </div>
 
-        <div class="section" id="about">
-          <h3 style="margin-bottom:8px">About</h3>
-          <p style="color:rgba(222,226,255,0.85);font-size:14px">Computer Science student with hands-on internship experience in AWS & Azure, Docker & Terraform, and AI-integrated full-stack work. Completed courses in Generative AI (Google Cloud), LLaMA 4 prompt engineering (Udemy), and Data Analysis with Excel.</p>
+        <div class="section" id="about" style="margin-top:18px">
+          <h3 style="color:#fff;margin-bottom:8px">About</h3>
+          <p style="color:rgba(224,232,255,0.9)">Computer Science student at Aalim Muhammed Salegh College with internship experience at HTGE Technologies Pvt Ltd. Worked on cloud deployments (AWS, Azure), containerization (Docker), Infrastructure as Code (Terraform), and AI integrations. Completed certifications: Generative AI (Google Cloud), LLaMA 4 Prompt Engineering (Udemy), Data Analysis with Excel (Great Learning).</p>
         </div>
 
         <div class="section" id="skills">
-          <h3 style="margin-bottom:8px">Skills</h3>
-          <div class="grid">
+          <h3 style="color:#fff;margin-bottom:10px">Skills</h3>
+          <div class="grid-3">
             <div class="skill">Frontend: HTML, CSS, Vanilla JS</div>
             <div class="skill">Cloud: AWS, Azure</div>
             <div class="skill">DevOps: Docker, Terraform</div>
             <div class="skill">Prompting: LLaMA, ChatGPT</div>
             <div class="skill">Data: Excel, Colab</div>
-            <div class="skill">Tools: VS Code, Git</div>
+            <div class="skill">Tools: Git, VS Code</div>
           </div>
         </div>
       </div>
 
-      <aside class="card">
-        <div class="role">Available: Internships & Junior Roles</div>
-        <div style="margin:12px 0;font-weight:800">Arul Joshuaa</div>
-        <div style="color:rgba(222,226,255,0.8);font-size:13px">B.E. CSE — Aalim Muhammed Salegh College</div>
+      <aside class="card" aria-label="Contact card">
+        <div class="role">Available for Internships & Junior Roles</div>
+        <div class="name-strong">Arul Joshuaa</div>
+        <div class="small-muted">B.E. CSE — Aalim Muhammed Salegh College</div>
 
         <div style="margin-top:12px">
-          <div class="badge">Email</div>
-          <div style="margin-top:6px;color:rgba(236,239,255,0.9);font-weight:700">aruljoshuaajv2005@gmail.com</div>
-          <div style="margin-top:6px;color:rgba(236,239,255,0.75);font-size:13px">+91 93420 27854</div>
+          <div style="font-weight:800;color:#fff">Contact</div>
+          <div style="margin-top:8px" class="small-muted">aruljoshuaajv2005@gmail.com</div>
+          <div style="margin-top:6px" class="small-muted">+91 93420 27854</div>
         </div>
 
-        <div style="margin-top:14px">
-          <div style="font-weight:700;margin-bottom:8px">Certifications</div>
-          <div style="font-size:13px;color:rgba(236,239,255,0.85)">Generative AI (Google Cloud)<br>LLaMA 4 Prompt Engineering (Udemy)<br>Data Analysis - Excel (Great Learning)</div>
+        <div style="margin-top:12px">
+          <div style="font-weight:800;color:#fff">Certifications</div>
+          <div class="small-muted" style="margin-top:6px">Generative AI (Google Cloud)<br>LLaMA 4 Prompt Engineering (Udemy)<br>Data Analysis - Excel (Great Learning)</div>
         </div>
 
         <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn primary" style="padding:8px 10px;font-size:13px">Contact</button>
-          <button class="btn ghost" style="padding:8px 10px;font-size:13px">Portfolio</button>
+          <a class="btn primary" href="#contact">Contact</a>
+          <button class="btn ghost" id="openPdfBtn">Open as PDF</button>
         </div>
       </aside>
     </section>
 
-    <section class="section" id="projects">
-      <h3 style="margin-bottom:12px">Selected Projects</h3>
+    <section class="section" id="projects" aria-labelledby="projectsHeading">
+      <h3 id="projectsHeading" style="color:#fff;margin-bottom:12px">Selected Projects</h3>
       <div class="projects">
         <div class="project">
           <h4>Prompt Playground</h4>
-          <p style="color:rgba(222,226,255,0.85);font-size:13px">A small web app to test prompts against LLM APIs with templates, comparisons and evaluation notes.</p>
-          <div class="tags">
-            <span class="tag">Prompting</span>
-            <span class="tag">LLM</span>
-            <span class="tag">JS</span>
+          <p style="color:rgba(224,232,255,0.9);font-size:13px">Web UI for testing prompt templates and comparing LLM responses (templates, evaluation notes).</p>
+          <div style="margin-top:10px">
+            <span class="tag">Prompting</span><span class="tag">LLM</span><span class="tag">JS</span>
           </div>
         </div>
 
         <div class="project">
           <h4>Containerized Flask App + Terraform</h4>
-          <p style="color:rgba(222,226,255,0.85);font-size:13px">Prototype with Dockerized backend, static frontend and Terraform scripts for cloud deployment.</p>
-          <div class="tags">
-            <span class="tag">Docker</span>
-            <span class="tag">Terraform</span>
-            <span class="tag">Cloud</span>
+          <p style="color:rgba(224,232,255,0.9);font-size:13px">Prototype with Dockerized backend, static frontend and Terraform scripts for cloud deployment.</p>
+          <div style="margin-top:10px">
+            <span class="tag">Docker</span><span class="tag">Terraform</span><span class="tag">Cloud</span>
           </div>
         </div>
-
       </div>
     </section>
 
     <section class="section" id="contact">
-      <h3>Contact</h3>
-      <p style="color:rgba(222,226,255,0.85);font-size:13px;margin-bottom:10px">Reach out for internships, collaboration or junior roles.</p>
-      <form id="contactForm" style="display:flex;flex-direction:column;gap:10px;max-width:600px">
-        <input type="text" id="name" placeholder="Your name" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" required>
-        <input type="email" id="email" placeholder="Your email" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" required>
-        <textarea id="message" rows="4" placeholder="Message" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit"></textarea>
+      <h3 style="color:#fff;margin-bottom:10px">Contact</h3>
+      <p style="color:rgba(224,232,255,0.9);font-size:13px;margin-bottom:12px">Reach out for internships, collaborations, or junior roles. You can also download the resume PDF directly.</p>
+
+      <form id="contactForm" style="display:flex;flex-direction:column;gap:10px;max-width:700px">
+        <input type="text" id="name" placeholder="Your name" required style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+        <input type="email" id="email" placeholder="Your email" required style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+        <textarea id="message" rows="4" placeholder="Message" style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit"></textarea>
         <div style="display:flex;gap:8px">
           <button type="submit" class="btn primary">Send Message</button>
-          <button type="button" class="btn ghost" id="downloadVCard">Download vCard</button>
+          <button type="button" class="btn ghost" id="downloadResumeBtn">Download Resume</button>
         </div>
       </form>
     </section>
 
-    <footer>© <span id="year"></span> Arul Joshuaa — Built with care</footer>
-  </main>
+    <footer>© <span id="year"></span> Arul Joshuaa — Portfolio</footer>
+  </div>
+
+  <!-- Modal for PDF viewer -->
+  <div id="pdfModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div style="font-weight:800">Resume — Arul Joshuaa</div>
+        <div>
+          <a id="modalDownload" href="#" class="download-inline" download>Download</a>
+          <button class="close-x" id="closeModal">✕</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="iframe-wrap" id="iframeWrap" style="height:100%"></div>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // Set year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    /***** CONFIG: change file names here if you uploaded different names *****/
+    const RESUME_FILENAME = 'ARUL_JOSHuaa_RESUME.pdf'; // <-- put your PDF in same folder and name it this (case-sensitive)
+    const PROFILE_FILENAME = 'profile.jpg'; // optional: add profile.jpg later
 
-    // Simple resume download (points to uploaded PDF path if available). If not available, create a small text file.
-    const resumeBtn = document.getElementById('resumeBtn');
-    resumeBtn.addEventListener('click', () => {
-      // If you host your resume, replace the URL below
-      const resumeUrl = '/mnt/data/ARUL JOSHUAA\'s RESUME.pdf';
-      // try to download; fallback to generating a small summary
-      fetch(resumeUrl).then(r => {
-        if(r.ok){ window.open(resumeUrl, '_blank'); }
-      }).catch(()=>{
-        const blob = new Blob([`Name: Arul Joshuaa\nRole: Full-Stack & Prompt Engineer\nEmail: aruljoshuaajv2005@gmail.com`], {type:'text/plain'});
-        const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='Arul-Joshuaa-resume.txt'; a.click();
-      });
-    });
+    // set download link (for typical hosting, this will link to same folder)
+    const downloadLink = document.getElementById('downloadResume');
+    downloadLink.href = RESUME_FILENAME;
+    downloadLink.setAttribute('download', RESUME_FILENAME);
 
-    // Hire / Intern button scrolls to contact
-    document.getElementById('hireBtn').addEventListener('click', ()=>{
-      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    // modal PDF viewer
+    const pdfModal = document.getElementById('pdfModal');
+    const viewResumeBtn = document.getElementById('viewResumeBtn');
+    const openPdfBtn = document.getElementById('openPdfBtn');
+    const closeModal = document.getElementById('closeModal');
+    const modalDownload = document.getElementById('modalDownload');
+    const iframeWrap = document.getElementById('iframeWrap');
+
+    function openPdfModal() {
+      modalDownload.href = RESUME_FILENAME;
+      // Use <iframe> to display PDF (works on most modern hosts). Some browsers block inline PDFs — then it will prompt download.
+      iframeWrap.innerHTML = '<iframe src="' + RESUME_FILENAME + '" style="width:100%;height:100%;border:0">Your browser does not support inline PDFs. You can download the file instead.</iframe>';
+      pdfModal.classList.add('open');
+      pdfModal.setAttribute('aria-hidden','false');
+    }
+    viewResumeBtn.addEventListener('click', openPdfModal);
+    openPdfBtn.addEventListener('click', openPdfModal);
+    closeModal.addEventListener('click', ()=>{ pdfModal.classList.remove('open'); pdfModal.setAttribute('aria-hidden','true'); iframeWrap.innerHTML=''; });
+
+    // header hire button scroll
+    document.getElementById('hireBtn').addEventListener('click', ()=>{ document.getElementById('contact').scrollIntoView({behavior:'smooth'}); });
+
+    // contact form fake submission (mailto fallback)
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value || 'Friend';
+      alert(`Thanks ${name}! Your message is noted. For real deployment consider wiring this to an email service or use mailto in a link.`);
+      e.target.reset();
     });
 
     // vCard download
     document.getElementById('downloadVCard').addEventListener('click', ()=>{
-      const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:Joshuaa;Arul;;;\nFN:Arul Joshuaa\nORG:Aalim Muhammed Salegh College\nTITLE:Full-Stack Developer\nEMAIL;TYPE=INTERN:aruljoshuaajv2005@gmail.com\nTEL;TYPE=CELL:+919342027854\nEND:VCARD`;
+      const vcard = `BEGIN:VCARD
+VERSION:3.0
+N:Joshuaa;Arul;;;
+FN:Arul Joshuaa
+ORG:Aalim Muhammed Salegh College
+TITLE:Full-Stack Developer
+EMAIL;TYPE=INTERN:aruljoshuaajv2005@gmail.com
+TEL;TYPE=CELL:+919342027854
+END:VCARD`;
       const blob = new Blob([vcard], {type:'text/vcard'});
       const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download='Arul-Joshuaa.vcf'; a.click();
     });
 
-    // Contact form basic behavior: prevent actual submission, show a toast
-    document.getElementById('contactForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const name = document.getElementById('name').value || 'Friend';
-      alert(`Thanks ${name}! Message received — I'll reply via email soon.`);
-      e.target.reset();
-    });
+    // download resume button in contact (duplicate)
+    document.getElementById('downloadResumeBtn').addEventListener('click', ()=>{ window.location.href = RESUME_FILENAME; });
 
-    // subtle parallax effect for blobs based on mouse
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // parallax-like blob movement for subtle interactivity
     const blobs = document.querySelectorAll('.blob');
     document.addEventListener('mousemove', (e)=>{
       const x = (e.clientX / window.innerWidth - 0.5) * 40;
@@ -251,6 +315,23 @@
         b.style.transform = `translate3d(${x/speed}px, ${y/speed}px, 0) scale(${1 + i*0.02})`;
       });
     });
+
+    // Try to load profile.jpg if present; otherwise keep initials
+    (function tryLoadProfile(){
+      const avatar = document.getElementById('avatar');
+      const init = document.getElementById('init');
+      const img = new Image();
+      img.src = PROFILE_FILENAME;
+      img.onload = function(){
+        avatar.innerHTML = '';
+        img.alt = 'Arul Joshuaa';
+        avatar.appendChild(img);
+      }
+      img.onerror = function(){ /* no profile image found -> keep initials */ }
+    })();
+
+    // Helpful note for local testing in some environments (like when resume is in different folder):
+    // If your host uses a different file name or path for the resume PDF, update the RESUME_FILENAME at top of this script.
   </script>
 </body>
 </html>
